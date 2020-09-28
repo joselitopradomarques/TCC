@@ -13,6 +13,7 @@ void Escreve_Pipe(int fd,char mensagem[])
     }
     usleep(1000);
     printf("Adicionei uma nova linha após o upload no github. fiz o push carai");
+    printf("Adicionei OUTRA nova linha após o upload no github. fiz o push carai");
 }
 void Ler_Pipe(int fd)
 {
