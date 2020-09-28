@@ -12,6 +12,7 @@ void Escreve_Pipe(int fd,char mensagem[])
         printf("Erro ao escrever no pipe.\n");
     }
     usleep(1000);
+    printf("Adicionei uma nova linha após o upload no github. fiz o push carai");
 }
 void Ler_Pipe(int fd)
 {
