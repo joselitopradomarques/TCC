@@ -16,6 +16,7 @@ void Ler_Pipe(int fd)
     }while(mensagem[i]!='\0');
     printf("%s",mensagem);
     usleep(1000);
+    printf("nova linha adicionada");
 }
 int main()
 {
