@@ -134,3 +134,10 @@ fabric.properties
 .idea/codestream.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,pycharm
+
+
+### EDF Files ###
+.edf
+.seizures
+
+### End of EDF Files ###
