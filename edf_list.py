@@ -1,15 +1,15 @@
-def edf_lis(path="/Users/joselito/ENV1/edf_file"):
+def edf_lis(path="/Users/joselito/tcc/dataset"):
     import os
 
     list_edf = []
 
     for filename in os.listdir(path):
         if filename.endswith(".edf"):
-            list_edf.append(filename)
+            list_edf.append(filename);
         else:
             continue
-
-    list_edf = sorted(list_edf)
+    print("Lista de arquivos .edf obtida")
+    list_edf = sorted(list_edf);
     return list_edf
 
 def signals(list_edf,i):
@@ -18,9 +18,21 @@ def signals(list_edf,i):
     depois alterar para que o canal seja iterativo para varrer o arquivo completo
     '''
     file = list_edf[i]
-    [signals, signal_headers, header] = pyedflib.highlevel.read_edf('/Users/joselito/ENV1/edf_file/' + file, ch_nrs=0,
+    [signals, signal_headers, header] = pyedflib.highlevel.read_edf('/Users/joselito/tcc/dataset/' + file, ch_nrs=0,
                                                                     digital=True)
-    signals = signals.astype('uint8')
+
+    return signals
+
+def sigtes():
+    '''
+    Pega o primeiro canal do primeiro paciente do primeiro edf só
+    Returns
+    -------
+    é isso porra
+    '''
+    import pyedflib
+    [signals, signal_headers, header] = pyedflib.highlevel.read_edf('/Users/joselito/tcc/dataset/chb01-chb01_01.edf',
+                                                                    ch_nrs=0, digital=True)
     return signals
 
 def bla(list_edf):
@@ -30,13 +42,16 @@ def bla(list_edf):
 
     :return:
     matrix com todos os valores do mesmo canal em um array
+    canal padrão é 0 
+    caso queira alterar, criar-se-á lógica
     '''
     matrix = []
     for i in range(len(list_edf)):
-        print(i)
+        # print("Importando arquivo ",i+1," de ",len(list_edf))
         signals_data = signals(list_edf, i)
         matrix.append(signals_data)
     matrix = np.hstack(matrix)
+    print("Todos arquivos foram importados.")
     return matrix
 
 def h5py(data):

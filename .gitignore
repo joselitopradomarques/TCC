@@ -141,3 +141,7 @@ fabric.properties
 .seizures
 /dataset/
 ### End of EDF Files ###
+
+### Folders to ignore
+/test/
+### End of folders to ignore
